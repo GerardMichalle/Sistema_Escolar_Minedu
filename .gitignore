@@ -1,0 +1,16 @@
+# Dependencias
+node_modules/
+# Build
+dist/
+build/
+target/
+# Entorno
+.env
+.env.local
+*.log
+# IDE
+.idea/
+.vscode/
+*.iml
+# SO
+.DS_Store
