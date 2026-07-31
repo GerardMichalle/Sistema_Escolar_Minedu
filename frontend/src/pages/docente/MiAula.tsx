@@ -21,7 +21,7 @@ export default function MiAula() {
   return (
     <>
       <Topbar title="Mi aula · 5° A" subtitle="Tutoría a tu cargo · 28 estudiantes" />
-      <div className="px-8 pb-10 max-w-[1280px] space-y-4">
+      <div className="px-4 sm:px-8 pb-10 max-w-[1280px] space-y-4">
 
         <div className="grid grid-cols-2 xl:grid-cols-4 gap-4">
           <StatCard icon={<Users size={19} strokeWidth={1.7} />} label="En el aula ahora" value={String(presentes)} denom="28" note="Actualizado en tiempo real" noteTone="ok" />

@@ -34,7 +34,7 @@ export default function Roles() {
   return (
     <>
       <Topbar title="Roles y permisos" subtitle="Qué puede hacer cada tipo de cuenta" />
-      <div className="px-8 pb-10 max-w-[1150px]">
+      <div className="px-4 sm:px-8 pb-10 max-w-[1150px]">
         <div className="card p-6">
           <PanelHead
             title="Matriz de permisos"

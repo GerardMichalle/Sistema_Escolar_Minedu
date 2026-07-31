@@ -17,7 +17,7 @@ export default function Libretas() {
   return (
     <>
       <Topbar title="Notas y libretas" subtitle="5° 'A' · II Bimestre 2026" />
-      <div className="px-8 pb-10 max-w-[1100px] space-y-4">
+      <div className="px-4 sm:px-8 pb-10 max-w-[1100px] space-y-4">
         <div className="card p-5 flex items-center gap-4 bg-brand-faint border-brand-soft">
           <span className="grid place-items-center w-10 h-10 rounded-[10px] bg-brand-soft text-brand shrink-0"><FileText size={17} /></span>
           <p className="text-[12.5px] text-ink-2 flex-1">

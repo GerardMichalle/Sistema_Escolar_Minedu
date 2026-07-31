@@ -7,7 +7,7 @@ export default function InicioAlumno() {
   return (
     <>
       <Topbar title="¡Hola, Valeria!" subtitle="Este es tu espacio en Willay" />
-      <div className="px-8 pb-10 max-w-[1100px] space-y-4">
+      <div className="px-4 sm:px-8 pb-10 max-w-[1100px] space-y-4">
 
         {/* Hero joven */}
         <div className="card overflow-hidden">

@@ -132,7 +132,7 @@ export function LogoWillay({ size = 26 }: { size?: number }) {
   );
 }
 
-export default function Sidebar() {
+export default function Sidebar({ enCajon = false, onNavegar }: { enCajon?: boolean; onNavegar?: () => void }) {
   const { usuario, cerrar } = useAuth();
   const nav = useNavigate();
   if (!usuario) return null;
@@ -140,7 +140,9 @@ export default function Sidebar() {
   const groups = NAV.filter(g => g.roles.includes(usuario.rol));
 
   return (
-    <aside className="w-[232px] shrink-0 bg-paper border-r border-line h-screen sticky top-0 flex flex-col">
+    <aside className={enCajon
+      ? 'w-[264px] bg-paper h-full flex flex-col'
+      : 'w-[232px] shrink-0 bg-paper border-r border-line h-screen sticky top-0 hidden lg:flex flex-col'}>
       <div className="px-5 pt-5 pb-4 flex items-center gap-2.5">
         <LogoWillay />
         <span className="text-[19px] font-bold tracking-tight">Willay</span>
@@ -155,6 +157,7 @@ export default function Sidebar() {
                 key={item.to}
                 to={item.to}
                 end={item.to === '/'}
+                onClick={onNavegar}
                 className={({ isActive }) => cn(
                   'flex items-center gap-2.5 rounded-[10px] px-3 py-[8.5px] text-[13px] font-medium transition-colors mb-0.5',
                   isActive ? 'bg-brand-soft text-brand' : 'text-ink-2 hover:bg-canvas hover:text-ink',

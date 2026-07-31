@@ -24,7 +24,7 @@ export default function Alumnos() {
   return (
     <>
       <Topbar title="Alumnos" subtitle={`${alumnos.length ? '560 registrados · 542 tarjetas vinculadas' : 'Cargando…'}`} />
-      <div className="px-8 pb-10 max-w-[1280px] space-y-4">
+      <div className="px-4 sm:px-8 pb-10 max-w-[1280px] space-y-4">
         <div className="flex items-center justify-between gap-4 flex-wrap">
           <FilterTabs tabs={TABS} active={tab} onChange={setTab} />
           <div className="flex gap-2">

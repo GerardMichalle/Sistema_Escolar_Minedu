@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  /* Willay Design System */
+  /* ===== Willay Design System ===== */
   --color-brand: #E02D2D;
   --color-brand-strong: #C51F1F;
   --color-brand-soft: #FDEBEB;
@@ -10,7 +10,6 @@
   --color-ink: #17181A;
   --color-ink-2: #55575C;
   --color-ink-3: #9A9CA3;
-  --color-ink-solid: #17181A;
 
   --color-line: #E9EAEC;
   --color-line-2: #D9DADD;
@@ -55,34 +54,30 @@
   }
 }
 
-/* Modo oscuro: se activa agregando la clase .dark al <html> (ver ThemeContext) */
-.dark {
-  --color-brand-soft: #3A1414;
-  --color-brand-faint: #241010;
-
-  --color-ink: #F0F1F3;
-  --color-ink-2: #B4B6BC;
-  --color-ink-3: #7B7D85;
-
-  --color-line: #2A2C30;
-  --color-line-2: #3A3D42;
-  --color-paper: #1C1D21;
-  --color-canvas: #131417;
-
-  --color-ok: #34C77C;
-  --color-ok-soft: #12301F;
-  --color-warn: #E0973A;
-  --color-warn-soft: #362408;
-  --color-bad: #F0524F;
-  --color-bad-soft: #391414;
-  --color-info: #5B8DF5;
-  --color-info-soft: #14213D;
-
-  color-scheme: dark;
-}
-
 html { -webkit-font-smoothing: antialiased; }
-body { background: var(--color-canvas); color: var(--color-ink); font-family: var(--font-sans); font-size: 13.5px; transition: background-color .2s ease, color .2s ease; }
+html.dark { color-scheme: dark; }
+
+/* ── Modo oscuro: mismos tokens, paleta nocturna ── */
+.dark {
+  --color-ink: #F1F1F2;
+  --color-ink-2: #B4B6BC;
+  --color-ink-3: #7B7D84;
+  --color-line: #26272B;
+  --color-line-2: #35373C;
+  --color-paper: #1A1B1E;
+  --color-canvas: #101113;
+  --color-brand-soft: #3B1516;
+  --color-brand-faint: #2A1012;
+  --color-ok: #3FCB7E;
+  --color-ok-soft: #10291B;
+  --color-warn: #E0A044;
+  --color-warn-soft: #2E2310;
+  --color-bad: #F26D6D;
+  --color-bad-soft: #331515;
+  --color-info: #6FA8F5;
+  --color-info-soft: #14213A;
+}
+body { background: var(--color-canvas); color: var(--color-ink); font-family: var(--font-sans); font-size: 13.5px; }
 ::selection { background: var(--color-brand); color: #fff; }
 
 .label-mono {
@@ -94,7 +89,7 @@ body { background: var(--color-canvas); color: var(--color-ink); font-family: va
   color: var(--color-ink-3);
 }
 
-.card { background: var(--color-paper); border: 1px solid var(--color-line); border-radius: var(--radius-card); transition: background-color .2s ease, border-color .2s ease; }
+.card { background: var(--color-paper); border: 1px solid var(--color-line); border-radius: var(--radius-card); }
 
 .dot-live { position: relative; }
 .dot-live::after {

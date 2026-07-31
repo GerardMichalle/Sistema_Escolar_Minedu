@@ -15,7 +15,7 @@ export default function Reportes() {
   return (
     <>
       <Topbar title="Reportes" subtitle="Documentos oficiales listos para exportar" />
-      <div className="px-8 pb-10 max-w-[1280px]">
+      <div className="px-4 sm:px-8 pb-10 max-w-[1280px]">
         <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-4">
           {REPORTES.map(r => (
             <div key={r.titulo} className="card p-5 flex flex-col hover:shadow-[0_4px_16px_rgba(0,0,0,.05)] hover:-translate-y-px transition-all">

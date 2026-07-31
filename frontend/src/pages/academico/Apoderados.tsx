@@ -11,7 +11,7 @@ export default function Apoderados() {
   return (
     <>
       <Topbar title="Apoderados" subtitle="486 familias · 402 con cuenta web activa" />
-      <div className="px-8 pb-10 max-w-[1280px] space-y-4">
+      <div className="px-4 sm:px-8 pb-10 max-w-[1280px] space-y-4">
         <div className="flex justify-end gap-2">
           <Button variant="ghost"><Send size={14} /> Invitar pendientes</Button>
           <Button><Plus size={14} /> Registrar apoderado</Button>

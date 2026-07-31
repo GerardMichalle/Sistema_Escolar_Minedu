@@ -38,17 +38,17 @@ export default function MiPerfil() {
   return (
     <>
       <Topbar title="Mi perfil" subtitle="Tu información, tu tarjeta y tu progreso" />
-      <div className="px-8 pb-10 max-w-[1100px] space-y-4">
+      <div className="px-4 sm:px-8 pb-10 max-w-[1100px] space-y-4">
 
         {/* Cabecera con identidad */}
         <div className="card overflow-hidden">
           <div className="h-[92px] bg-gradient-to-r from-brand to-[#F2683C] relative">
             <div className="absolute inset-0 opacity-[.15]" style={{ backgroundImage: 'radial-gradient(circle at 20% 50%, #fff 1.5px, transparent 1.5px)', backgroundSize: '22px 22px' }} />
           </div>
-          <div className="px-7 pb-6 flex flex-wrap items-end gap-5 -mt-9">
-            <div className="relative">
+          <div className="px-7 pb-6 flex flex-wrap items-end gap-5">
+            <div className="relative -mt-9">
               <span className="grid place-items-center w-[84px] h-[84px] rounded-full bg-brand-soft text-brand text-[26px] font-bold border-4 border-paper shadow-sm">VQ</span>
-              <button className="absolute -bottom-1 -right-1 grid place-items-center w-8 h-8 rounded-full bg-ink-solid text-white hover:bg-brand transition-colors cursor-pointer" title="Cambiar foto">
+              <button className="absolute -bottom-1 -right-1 grid place-items-center w-8 h-8 rounded-full bg-ink text-white hover:bg-brand transition-colors cursor-pointer" title="Cambiar foto">
                 <Camera size={14} />
               </button>
             </div>
@@ -81,7 +81,7 @@ export default function MiPerfil() {
           {/* Tarjeta digital */}
           <div className="card p-6">
             <PanelHead title="Mi tarjeta digital" sub="Preséntala en el lector si olvidaste tu tarjeta física" />
-            <div className="rounded-[16px] bg-ink-solid text-white p-5 relative overflow-hidden">
+            <div className="rounded-[16px] bg-[#17181A] text-white p-5 relative overflow-hidden">
               <div className="absolute -right-10 -top-10 w-40 h-40 rounded-full bg-brand/20" />
               <div className="absolute -right-2 -bottom-14 w-32 h-32 rounded-full bg-brand/10" />
               <div className="flex items-start justify-between relative">

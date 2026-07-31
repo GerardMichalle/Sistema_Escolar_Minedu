@@ -1,6 +1,6 @@
-import { Search, Bell, Sun, Moon } from 'lucide-react';
+import { Search, Bell } from 'lucide-react';
+import ThemeToggle from './ThemeToggle';
 import { useAuth } from '../context/AuthContext';
-import { useTheme } from '../context/ThemeContext';
 import { Avatar } from './ui';
 
 function fechaLarga() {
@@ -10,11 +10,18 @@ function fechaLarga() {
   return `${s.charAt(0).toUpperCase() + s.slice(1)} · ${h}`;
 }
 
+const PLACEHOLDER: Record<string, string> = {
+  admin: 'Buscar alumno, código o DNI…',
+  direccion: 'Buscar alumno, código o DNI…',
+  profesor: 'Buscar en mi aula…',
+  alumno: 'Buscar en Willay…',
+  apoderado: 'Buscar en Willay…',
+};
+
 export default function Topbar({ title, subtitle }: { title: string; subtitle?: string }) {
   const { usuario } = useAuth();
-  const { tema, alternar } = useTheme();
   return (
-    <header className="flex items-center justify-between gap-4 px-8 pt-6 pb-5">
+    <header className="flex items-center justify-between gap-4 px-4 sm:px-8 pt-5 sm:pt-6 pb-5">
       <div className="min-w-0">
         <h1 className="text-[22px] font-bold tracking-tight truncate">{title}</h1>
         <p className="text-[12.5px] text-ink-3 mt-0.5">{subtitle ?? fechaLarga()}</p>
@@ -23,18 +30,11 @@ export default function Topbar({ title, subtitle }: { title: string; subtitle?: 
         <label className="hidden md:flex items-center gap-2 bg-paper border border-line rounded-[10px] px-3.5 py-2.5 w-[260px] transition-colors focus-within:border-line-2">
           <Search size={15} className="text-ink-3" />
           <input
-            placeholder="Buscar alumno, código o DNI…"
+            placeholder={PLACEHOLDER[usuario?.rol ?? 'admin']}
             className="w-full bg-transparent outline-none text-[13px] placeholder:text-ink-3"
           />
         </label>
-        <button
-          onClick={alternar}
-          className="grid place-items-center w-10 h-10 rounded-[10px] border border-line bg-paper text-ink-2 hover:text-ink transition-colors cursor-pointer"
-          aria-label={tema === 'dark' ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'}
-          title={tema === 'dark' ? 'Modo claro' : 'Modo oscuro'}
-        >
-          {tema === 'dark' ? <Sun size={16} /> : <Moon size={16} />}
-        </button>
+        <ThemeToggle />
         <button className="relative grid place-items-center w-10 h-10 rounded-[10px] border border-line bg-paper text-ink-2 hover:text-ink transition-colors cursor-pointer" aria-label="Notificaciones">
           <Bell size={16} />
           <span className="absolute top-2 right-2 w-2 h-2 rounded-full bg-brand border-2 border-paper" />

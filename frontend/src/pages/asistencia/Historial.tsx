@@ -27,7 +27,7 @@ export default function Historial() {
         title={usuario?.rol === 'alumno' ? 'Mi asistencia' : usuario?.rol === 'apoderado' ? 'Asistencia de Valeria' : 'Historial de asistencia'}
         subtitle={usuario?.rol === 'profesor' ? 'Registros de tu aula · 5° A' : 'Registros con fecha, hora de entrada y salida'}
       />
-      <div className="px-8 pb-10 max-w-[1280px] space-y-4">
+      <div className="px-4 sm:px-8 pb-10 max-w-[1280px] space-y-4">
         <div className="flex items-center justify-between gap-4 flex-wrap">
           <FilterTabs tabs={['Hoy', 'Esta semana', 'Este mes', 'Bimestre']} active={tab} onChange={setTab} />
           <div className="flex gap-2">

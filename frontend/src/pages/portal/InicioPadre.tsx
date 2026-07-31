@@ -14,7 +14,7 @@ export default function InicioPadre() {
   return (
     <>
       <Topbar title="Buenos días, Rosa" subtitle="Resumen de Valeria · 5° 'A'" />
-      <div className="px-8 pb-10 max-w-[1100px] space-y-4">
+      <div className="px-4 sm:px-8 pb-10 max-w-[1100px] space-y-4">
 
         {/* Estado ahora: lo primero que un padre quiere saber */}
         <div className="card p-6 flex flex-wrap items-center gap-5">

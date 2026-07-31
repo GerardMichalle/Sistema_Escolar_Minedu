@@ -6,7 +6,7 @@ export default function Configuracion() {
   return (
     <>
       <Topbar title="Configuración" subtitle="Institución, lectores y notificaciones" />
-      <div className="px-8 pb-10 max-w-[900px] space-y-4">
+      <div className="px-4 sm:px-8 pb-10 max-w-[900px] space-y-4">
 
         <div className="card p-6">
           <PanelHead title="Institución" right={<Building2 size={16} className="text-ink-3" />} />

@@ -14,7 +14,7 @@ export default function Libreta() {
   return (
     <>
       <Topbar title="Libreta virtual" subtitle="Valeria Quispe Rojas · 5° 'A' · A-2041" />
-      <div className="px-8 pb-10 max-w-[900px] space-y-4">
+      <div className="px-4 sm:px-8 pb-10 max-w-[900px] space-y-4">
         <div className="card p-6 flex items-center gap-4">
           <Avatar nombre="Valeria Quispe" size="lg" />
           <div className="flex-1">

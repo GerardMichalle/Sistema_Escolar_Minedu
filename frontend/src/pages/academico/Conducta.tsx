@@ -11,7 +11,7 @@ export default function Conducta() {
   return (
     <>
       <Topbar title="Conducta" subtitle="Méritos y deméritos · comunicados al apoderado" />
-      <div className="px-8 pb-10 max-w-[900px] space-y-4">
+      <div className="px-4 sm:px-8 pb-10 max-w-[900px] space-y-4">
         <div className="flex justify-end">
           <Button><Plus size={14} /> Nuevo registro</Button>
         </div>

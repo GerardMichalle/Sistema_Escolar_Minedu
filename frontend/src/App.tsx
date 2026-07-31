@@ -1,8 +1,5 @@
-
-/* Importacion simple xd*/
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
-import { ThemeProvider } from './context/ThemeContext';
 import AppLayout from './layouts/AppLayout';
 import Protegida from './components/Protegida';
 import Login from './pages/Login';
@@ -13,7 +10,7 @@ import Matriculas from './pages/academico/Matriculas';
 import Apoderados from './pages/academico/Apoderados';
 import Docentes from './pages/academico/Docentes';
 import Conducta from './pages/academico/Conducta';
-import ControlVivo from './pages/asistencia/ControlVivo';  
+import ControlVivo from './pages/asistencia/ControlVivo';
 import Historial from './pages/asistencia/Historial';
 import Comunicados from './pages/comunicacion/Comunicados';
 import CursosGratuitos from './pages/cursos/CursosGratuitos';
@@ -26,10 +23,8 @@ import Configuracion from './pages/sistema/Configuracion';
 import Libreta from './pages/portal/Libreta';
 import MiPerfil from './pages/portal/MiPerfil';
 
-
 export default function App() {
   return (
-    <ThemeProvider>
     <AuthProvider>
       <BrowserRouter>
         <Routes>
@@ -38,7 +33,7 @@ export default function App() {
           <Route element={<AppLayout />}>
             <Route path="/" element={<Home />} />
 
-            {}
+            {/* Gestión: admin y dirección */}
             <Route path="/matriculas" element={<Protegida roles={['admin', 'direccion']}><Matriculas /></Protegida>} />
             <Route path="/alumnos" element={<Protegida roles={['admin', 'direccion']}><Alumnos /></Protegida>} />
             <Route path="/apoderados" element={<Protegida roles={['admin', 'direccion']}><Apoderados /></Protegida>} />
@@ -73,6 +68,5 @@ export default function App() {
         </Routes>
       </BrowserRouter>
     </AuthProvider>
-    </ThemeProvider>
   );
 }

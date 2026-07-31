@@ -49,7 +49,7 @@ export default function Dashboard() {
   return (
     <>
       <Topbar title={`${saludo}, ${usuario?.nombre.split(' ')[0]}`} />
-      <div className="px-8 pb-10 space-y-4 max-w-[1280px]">
+      <div className="px-4 sm:px-8 pb-10 space-y-4 max-w-[1280px]">
 
         <GateTicker />
 

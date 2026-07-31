@@ -11,7 +11,7 @@ export default function Docentes() {
   return (
     <>
       <Topbar title="Docentes" subtitle="36 en planilla · 34 activos hoy" />
-      <div className="px-8 pb-10 max-w-[1280px] space-y-4">
+      <div className="px-4 sm:px-8 pb-10 max-w-[1280px] space-y-4">
         <div className="flex justify-end">
           <Button><Plus size={14} /> Registrar docente</Button>
         </div>

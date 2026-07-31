@@ -11,7 +11,7 @@ export default function Comunicados() {
   return (
     <>
       <Topbar title="Comunicados" subtitle="Avisos oficiales enviados a las familias" />
-      <div className="px-8 pb-10 max-w-[900px] space-y-4">
+      <div className="px-4 sm:px-8 pb-10 max-w-[900px] space-y-4">
         <div className="flex justify-end">
           <Button><Plus size={14} /> Redactar comunicado</Button>
         </div>

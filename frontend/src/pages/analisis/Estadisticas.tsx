@@ -14,7 +14,7 @@ export default function Estadisticas() {
   return (
     <>
       <Topbar title="Estadísticas" subtitle="Indicadores del año escolar 2026" />
-      <div className="px-8 pb-10 max-w-[1280px] grid xl:grid-cols-2 gap-4">
+      <div className="px-4 sm:px-8 pb-10 max-w-[1280px] grid xl:grid-cols-2 gap-4">
         <div className="card p-6">
           <PanelHead title="Asistencia promedio mensual" sub="Porcentaje sobre alumnos matriculados" right={<Pill tone="ok">▲ Tendencia estable</Pill>} />
           <div className="flex items-end gap-4 h-[180px] mt-2">

@@ -3,6 +3,7 @@ import Dashboard from './Dashboard';
 import MiAula from './docente/MiAula';
 import InicioAlumno from './portal/InicioAlumno';
 import InicioPadre from './portal/InicioPadre';
+/*importaciones xdd*/
 
 /** El "Inicio" cambia según el rol: cada usuario ve lo que le importa. */
 export default function Home() {

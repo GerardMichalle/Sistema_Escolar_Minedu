@@ -51,7 +51,7 @@ export default function ControlVivo() {
         title={esProfesor ? 'Asistencia en vivo · 5° A' : 'Control en vivo'}
         subtitle={esProfesor ? 'Solo se muestran los estudiantes de tu aula' : 'Lecturas RFID de todas las puertas · conectado'}
       />
-      <div className="px-8 pb-10 max-w-[1280px] grid xl:grid-cols-[1fr_1.4fr] gap-4 items-start">
+      <div className="px-4 sm:px-8 pb-10 max-w-[1280px] grid xl:grid-cols-[1fr_1.4fr] gap-4 items-start">
 
         {/* Última lectura, en grande: pensada para proyectar en portería */}
         <div className="card p-8 text-center sticky top-6">

@@ -13,7 +13,7 @@ export default function Matriculas() {
   return (
     <>
       <Topbar title="Matrículas" subtitle="Periodo 2026 · Proceso extraordinario abierto" />
-      <div className="px-8 pb-10 max-w-[1280px] space-y-4">
+      <div className="px-4 sm:px-8 pb-10 max-w-[1280px] space-y-4">
         <div className="grid grid-cols-2 xl:grid-cols-4 gap-4">
           <StatCard icon={<FileSignature size={19} strokeWidth={1.7} />} label="Matriculados 2026" value="560" note="Capacidad: 620" noteTone="ok" />
           <StatCard icon={<FileSignature size={19} strokeWidth={1.7} />} label="Nuevas este mes" value="12" note="4 más que en junio" noteTone="ok" />
