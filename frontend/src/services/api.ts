@@ -1,66 +1,72 @@
-// ============================================================
-// Capa de servicios — preparada para la integración con el
-// backend Spring Boot (http://localhost:8080/api).
-//
-// Mientras el backend no exista, cada función devuelve datos
-// simulados (mock). Cuando el backend esté listo, solo hay que
-// reemplazar el cuerpo de cada función por la llamada real,
-// sin tocar ninguna página ni componente.
-// ============================================================
-import type { Alumno, LecturaRFID, RegistroAsistencia, NotaCurso, Usuario, Rol } from "../types";
-import { ALUMNOS, LECTURAS_VIVO, HISTORIAL_ALUMNO, NOTAS } from "../utils/mockData";
+/**
+ * Capa de servicios de Willay.
+ *
+ * HOY: devuelve datos mock para la demo del frontend.
+ * MAÑANA: reemplazar el cuerpo de cada función por un fetch() al backend
+ * Spring Boot (proxy ya configurado: /api → http://localhost:8080).
+ *
+ * Ninguna página importa datos mock directamente: todas pasan por aquí,
+ * así el cambio a backend real no toca ninguna vista.
+ */
+import {
+  ALUMNOS, LECTURAS_INICIALES, DOCENTES, APODERADOS, EVENTOS,
+  COMUNICADOS, ACTIVIDAD, MATRICULAS, CONDUCTA,
+  ASISTENCIA_SEMANA, STATS_HOY, USUARIO_DEMO, CURSOS_GRATUITOS,
+} from '../data/mock';
+import type { Rol, Usuario, LecturaRfid } from '../types';
 
-export const API_BASE_URL = "/api"; // proxy de Vite → Spring Boot :8080
+const delay = (ms = 220) => new Promise((r) => setTimeout(r, ms));
 
-// Ejemplo de cliente HTTP para el futuro:
-// async function http<T>(path: string, options?: RequestInit): Promise<T> {
-//   const token = localStorage.getItem("token");
-//   const res = await fetch(`${API_BASE_URL}${path}`, {
-//     ...options,
-//     headers: {
-//       "Content-Type": "application/json",
-//       ...(token ? { Authorization: `Bearer ${token}` } : {}),
-//       ...options?.headers,
-//     },
-//   });
-//   if (!res.ok) throw new Error(`Error ${res.status}`);
-//   return res.json();
-// }
-
-const delay = (ms = 300) => new Promise((r) => setTimeout(r, ms));
-
-export async function login(email: string, _password: string, rol: Rol): Promise<Usuario> {
-  await delay();
-  // TODO backend: return http<Usuario>("/auth/login", { method: "POST", body: JSON.stringify({ email, password }) });
-  const nombres: Record<Rol, string> = {
-    CEO: "Dir. Ricardo Málaga",
-    ADMIN: "Admin. Patricia Soto",
-    PROFESOR: "Prof. Jorge Delgado",
-    ALUMNO: "Valeria Quispe",
-  };
-  return { id: 1, nombre: nombres[rol], email, rol };
+// ── Auth ────────────────────────────────────────────────────────────
+// TODO Spring Boot: POST /api/auth/login  { usuario, password } → { token, usuario }
+export async function login(_correo: string, _password: string, rol: Rol): Promise<Usuario> {
+  await delay(400);
+  const base = { ...USUARIO_DEMO, rol };
+  switch (rol) {
+    case 'direccion':
+      return { ...base, nombre: 'Ricardo Palomino', correo: 'direccion@sanmartin.edu.pe', iniciales: 'RP' };
+    case 'admin':
+      return { ...base, nombre: 'Patricia Soto', correo: 'patricia.soto@sanmartin.edu.pe', iniciales: 'PS' };
+    case 'profesor':
+      return { ...base, nombre: 'Carlos Mendoza', correo: 'c.mendoza@sanmartin.edu.pe', iniciales: 'CM', aula: '5° A' };
+    case 'alumno':
+      return { ...base, nombre: 'Valeria Quispe', correo: 'valeria.quispe@sanmartin.edu.pe', iniciales: 'VQ', codigoAlumno: 'A-2041' };
+    case 'apoderado':
+      return { ...base, nombre: 'Rosa Rojas', correo: 'rosa.rojas@gmail.com', iniciales: 'RR', hijoCodigo: 'A-2041' };
+  }
 }
 
-export async function getAlumnos(): Promise<Alumno[]> {
-  await delay();
-  // TODO backend: return http<Alumno[]>("/alumnos");
-  return ALUMNOS;
-}
+// ── Alumnos ─────────────────────────────────────────────────────────
+// TODO: GET /api/alumnos?sede={sedeId}   ·   GET /api/alumnos?aula={aulaId}
+export async function getAlumnos() { await delay(); return ALUMNOS; }
 
-export async function getLecturasEnVivo(): Promise<LecturaRFID[]> {
-  await delay();
-  // TODO backend: return http<LecturaRFID[]>("/asistencia/lecturas");
-  return LECTURAS_VIVO;
-}
+// ── Asistencia ──────────────────────────────────────────────────────
+// TODO: GET /api/asistencia/lecturas/hoy  (histórico)
+//       WebSocket/SSE /api/asistencia/stream  (tiempo real desde el lector)
+//       El backend filtra por aula cuando el rol es docente.
+export async function getLecturasHoy(): Promise<LecturaRfid[]> { await delay(); return LECTURAS_INICIALES; }
 
-export async function getHistorialAlumno(_codigo: string): Promise<RegistroAsistencia[]> {
-  await delay();
-  // TODO backend: return http<RegistroAsistencia[]>(`/asistencia/alumno/${codigo}`);
-  return HISTORIAL_ALUMNO;
-}
+// TODO: GET /api/asistencia/resumen-semana
+export async function getAsistenciaSemana() { await delay(); return ASISTENCIA_SEMANA; }
 
-export async function getNotasAlumno(_codigo: string): Promise<NotaCurso[]> {
-  await delay();
-  // TODO backend: return http<NotaCurso[]>(`/notas/alumno/${codigo}`);
-  return NOTAS;
-}
+// ── Dashboard ───────────────────────────────────────────────────────
+// TODO: GET /api/dashboard/stats
+export async function getStatsHoy() { await delay(); return STATS_HOY; }
+export async function getActividad() { await delay(); return ACTIVIDAD; }
+
+// ── Personas ────────────────────────────────────────────────────────
+export async function getDocentes() { await delay(); return DOCENTES; }        // TODO: GET /api/docentes
+export async function getApoderados() { await delay(); return APODERADOS; }    // TODO: GET /api/apoderados
+
+// ── Académico ───────────────────────────────────────────────────────
+export async function getMatriculas() { await delay(); return MATRICULAS; }    // TODO: GET /api/matriculas
+export async function getConducta() { await delay(); return CONDUCTA; }        // TODO: GET /api/conducta
+
+// ── Comunicación / eventos ──────────────────────────────────────────
+export async function getEventos() { await delay(); return EVENTOS; }          // TODO: GET /api/eventos
+export async function getComunicados() { await delay(); return COMUNICADOS; }  // TODO: GET /api/comunicados
+
+// ── Cursos gratuitos ────────────────────────────────────────────────
+// TODO: GET /api/cursos-gratuitos
+//       POST /api/cursos-gratuitos/{id}/recursos  (multipart: pdf/video/imagen/libro — solo admin)
+export async function getCursosGratuitos() { await delay(); return CURSOS_GRATUITOS; }
