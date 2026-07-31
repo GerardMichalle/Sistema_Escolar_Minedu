@@ -54,7 +54,7 @@ export default function Login() {
 
         <div className="card p-7 shadow-[0_10px_40px_rgba(0,0,0,.06)]">
           <h1 className="text-[18px] font-bold tracking-tight">Bienvenido de nuevo</h1>
-          <p className="text-[12.5px] text-ink-3 mt-1 mb-5">Ingresa con la cuenta asignada por tu institución.</p>
+          <p className="text-[12.5px] text-ink-3 mt-1 mb-5">Ingresa con la cuenta asignada por tu institución</p>
 
           <div className="label-mono mb-2">Ingresar como</div>
           <div className="grid grid-cols-2 gap-2 mb-5">

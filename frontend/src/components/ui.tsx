@@ -158,7 +158,7 @@ export function FilterTabs({ tabs, active, onChange }: { tabs: string[]; active:
           onClick={() => onChange(t)}
           className={cn(
             'rounded-full px-3.5 py-1.5 text-[12px] font-medium transition-all cursor-pointer',
-            t === active ? 'bg-ink text-white' : 'text-ink-2 border border-line hover:border-line-2 hover:text-ink bg-paper',
+            t === active ? 'bg-ink-solid text-white' : 'text-ink-2 border border-line hover:border-line-2 hover:text-ink bg-paper',
           )}
         >
           {t}

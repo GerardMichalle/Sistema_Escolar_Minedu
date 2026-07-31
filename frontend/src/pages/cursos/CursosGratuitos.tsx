@@ -18,11 +18,7 @@ const TIPO: Record<TipoRecurso, { icon: React.ReactNode; label: string; cls: str
 
 /**
  * Cursos gratuitos del sistema.
- * El ADMINISTRADOR gestiona todo el contenido: crea cursos y categorías,
- * y sube libros, PDFs, imágenes y videos. Los demás roles solo consumen.
- * La estructura es data-driven: agregar un curso nuevo = agregar un registro,
- * sin tocar la interfaz.
- * TODO Spring Boot: CRUD /api/cursos-gratuitos + subida multipart de recursos.
+ * Spring Boot: CRUD /api/cursos-gratuitos + subida multipart de recursos.
  */
 export default function CursosGratuitos() {
   const { usuario } = useAuth();
